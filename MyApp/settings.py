@@ -25,7 +25,7 @@ SECRET_KEY = 'i3l2wh+ff=)+7a^)kb%e$l+6ckf3(7yz*$4-$)e$*)&#ierj8c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://mighty-peak-28780.herokuapp.com/", "127.0.0.1", "mighty-peak-28780.herokuapp.com/", "localhost", "herokuapp.com"]
+ALLOWED_HOSTS = ["enigmatic-waters-28745.herokuapp.com", "127.0.0.1", "localhost"]
 
 
 # Application definition
