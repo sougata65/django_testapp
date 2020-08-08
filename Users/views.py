@@ -4,7 +4,7 @@ from Users.models import User,ActivityPeriod
 from sklearn.utils import shuffle
 
 # loading the list of all available user ids in the database in order to send to the front-end
-# user_ids = shuffle(list(User.objects.values_list('id', flat=True)), random_state=0)
+user_ids = shuffle(list(User.objects.values_list('id', flat=True)), random_state=0)
 
 
 def index(request):
