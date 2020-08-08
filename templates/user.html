@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block css %}
+<style>
+.activity_period {
+  border: solid 2px;
+  background: #ddd;
+  border-collapse: separate;
+  border-spacing: 15px 100px;
+}
+.value {
+  font-weight: bold;
+}
+
+.datetime.value {
+  color: darkgreen;
+}
+.info.value {
+  color:blue;
+}
+h3 {
+  color:#000000;
+}
+.key {
+  font-weight: bold;
+  color:darkslategrey;
+}
+</style>
+{% endblock css %}
+{% block content %}
+
+
+<div class="user">
+  <h3>User information</h3>
+  <table>
+  <tr> <td class="info key">Username</td> <td>:</td> <td class="info value">{{ user.realname}}</td></tr>
+  <br>
+  <tr> <td class="info key">Timezone</td> <td>:</td> <td class="info value">{{ user.tz}}</td></tr>
+  <br>
+  <tr> <td class="info key">User ID</td> <td>:</td> <td class="info value">{{ user.id}}</td></tr>
+  </table>
+  <br>
+  <h3>User activity periods</h3>
+  <ul>
+    {% for period in activity_periods %}
+    <div class="activity_period">
+        <table>
+        {% for key,value in period.items %}
+          <tr><td class="datetime key">{{key}}</td> <td>:</td> <td class="datetime value">{{value}}</td></tr>
+        {% endfor %}
+        </table>
+    </div>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock content %}

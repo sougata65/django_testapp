@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<style>
+html {
+  background-size: cover;
+  background-image: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-031.jpg");
+}
+a {
+  font-weight: bold;
+  color: navy;
+}
+h2 {
+  color: red;
+}
+</style>
+{% endblock css %}
+{% block content %}
+
+<br><br><br>
+<h2>The requested url does not exist.</h2>
+<br><br>
+<a href="/">Go to index page</a>
+{% endblock content %}

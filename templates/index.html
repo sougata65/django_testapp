@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+html {
+  background-image: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-031.jpg");
+  background-size: cover;
+}
+.vertical-menu {
+  position: absolute;
+  background-color: #eee;
+  top: 20%;
+  left: 15%;
+  width: 400px;
+  height: 600px;
+  overflow-y: auto;
+  border: solid 1px;
+
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+
+.vertical-menu h3 {
+  background-color: #eee;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.results {
+  position: absolute;
+  top: 20%;
+  left: 60%;
+  width: 500px;
+  height: 600px;
+  background-color: #eee;
+  overflow-y: auto;
+  border: solid 1px;
+
+}
+h2 {
+
+}
+</style>
+<script>
+function ajax_call (method, url, async) {
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            response = this.responseText;
+            document.querySelector(".results").innerHTML = response
+
+       }
+    };
+    xhttp.open(method, url, async);
+    xhttp.send();
+
+}
+
+function load_results(elem) {
+  method = "GET"
+  async = true
+  url = elem.href
+  ajax_call(method, url, async)
+}
+</script>
+{% endblock css %}
+
+{% block content %}
+<h2>
+  <br>
+  Welcome to the index page.
+  Go to users/{user-id} to view a particular user's record.
+  Or select an id from the list below to view user information.
+</h2>
+  <br><br>
+
+  <div class="vertical-menu">
+    <h3>List of user ids</h3>
+    {% for id in user_ids %}
+    <a href="/users/{{ id }}" onclick="load_results(this); return false;">{{ id }}</a>
+
+    {% endfor %}
+  </div>
+
+
+<div class="results">
+
+</div>
+
+{% endblock content %}
